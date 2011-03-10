@@ -10,10 +10,10 @@
 #import "noteViewController.h"
 
 @interface menuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-	NSMutableArray *notes;
+	NSDictionary *notes;
 	UITableView *table;
-	noteViewController *noteVC;
 }
 @property (nonatomic,retain) IBOutlet UITableView *table;
-- (IBAction)tablePressed;
+- (IBAction) tablePressed;
+- (IBAction) addNotePressed;
 @end

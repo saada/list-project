@@ -125,14 +125,14 @@
 					<object class="IBUILabel" id="781355918">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{34, 37}, {42, 21}}</string>
+						<string key="NSFrame">{{20, 40}, {76, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Label</string>
+						<string key="IBUIText">12/2/2011</string>
 						<reference key="IBUITextColor" ref="859633190"/>
 						<reference key="IBUIHighlightedColor" ref="70014162"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -206,8 +206,8 @@
 							<reference ref="193979249"/>
 							<reference ref="732241926"/>
 							<reference ref="568922014"/>
-							<reference ref="781355918"/>
 							<reference ref="910920076"/>
+							<reference ref="781355918"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -283,7 +283,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBMAAAwmAAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABCCAAAwmAAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
