@@ -20,41 +20,72 @@
     if (self) {
         // Custom initialization.
 		//Initialize the array.
-		notes = [[NSMutableArray alloc] init];
-		
-		//Add items
-		[notes addObject:@"12/12/12\t\t\tIceland"];
-		[notes addObject:@"Greenland"];
-		[notes addObject:@"Switzerland"];
-		[notes addObject:@"Norway"];
-		[notes addObject:@"New Zealand"];
-		[notes addObject:@"Greece"];
-		[notes addObject:@"Rome"];
-		[notes addObject:@"Ireland"];
+		notes = [[NSDictionary alloc] init];
 		
 		//Set the title
 		self.navigationItem.title = @"Countries";
+		
+		NSMutableArray *keys = [NSArray arrayWithObjects:@"Note1", @"Note2", @"Note3", nil];
+		
+		NSMutableArray *objects = [NSArray arrayWithObjects:@"21/2/11", @"15/3/11", @"6/4/11", nil];
+		
+		notes = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+		
+		UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:CellIdentifier];
+		[table cellForRowAtIndexPath:<#(NSIndexPath *)indexPath#>
+		for (id key in notes) {
+			
+			NSLog(@"key: %@, value: %@", key, [notes objectForKey:key]);
+			if (cell == nil) {
+				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+				
+			}
+		}
+			
 		
     }
     return self;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return [notes size];
+}
+		 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	 
+ /* We'll talk more about this later, but the code below here initializes a UITableViewCell
+  (or reuses one) for this function to customize and return */
+	static NSString *CellIdentifier = @"Cell";
+			 
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		 cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	 }
+		 
+	 // Now we need to customize the UITableViewCell before we return it.  Right now we
+	 // just have the cell say "hi", but we should look up the string in our ShoppingList data structure.
+	 cell.textLabel.text = [myShoppingList getTitle: indexPath.row];
+		 
+	 return cell;
+}	 
+		 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+	/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-																						   target:self 
-																						   action:@selector(actionHappened)];
+	
 }
+*/
 
-- (void)actionHappened {
-	// "navigationController" is a property of the superclass UIViewController.  The UINavigationController
-	// holds a stack of screens (UIViews controller by UIViewControllers) that the app is showing.
-	// We're adding another screen (a UIView managed by a UIViewController) to the stack, to show our
-	// view that we created in Interface Builder
+- (IBAction) addNotePressed
+{
+	noteViewController *noteVC = [[noteViewController alloc] initWithNibName:@"noteViewController" bundle:nil];
 	[self.navigationController pushViewController:noteVC animated:YES];
 }
-
 
 /*
 // Override to allow orientations other than the default portrait orientation.
